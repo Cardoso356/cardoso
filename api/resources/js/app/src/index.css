@@ -1,0 +1,173 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  min-height: 100vh;
+
+}
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+
+}
+
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #212121;
+  background-color:  #f6f6f6f6;
+}
+
+input{
+  outline: 0;
+  background: #ffffff;
+  width: 100%;
+  border: 1px solid #584e4e;
+  margin: 0 0 15px;
+  padding: 12px;
+  font-size: 14px;
+  transition: all 0.3s;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+input:focus{
+  border: 2px solid #19058d;
+
+}
+
+/* 
+  ESTILO PARA OS BOTÕES:
+*/
+
+
+.btn
+.btn-add,
+.btn-edit,
+.btn-delete,
+.btn-show,
+.btn-cancel {
+  font-family: Arial, Helvetica, sans-serif;
+  outline: 0;
+  background: #5b08a7;
+  border: 0;
+  text-decoration: none;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: point;
+}
+
+/* 1rem = 16 pixels
+   1em = 16 pixels
+*/
+
+.btn-block{
+  width: 100%;
+}
+
+
+.btn-add,
+.btn-edit,
+.btn-delete,
+.btn-show,
+.btn-cancel{
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-add{
+  background-color: #00a762;
+}
+
+.btn-delete{
+  background-color: #d72424;
+}
+
+.btn-show{
+  background-color: rgb(59,59,90);
+  color: #ffffff;
+}
+
+.btn-cancel{
+  background-color: rgb(46,174,184);
+  color: #ffffff;
+}
+
+
+/*
+  ESTILO PARA AS TABELAS:
+*/
+
+table{
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th, td{
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  text-align: left;
+}
+
+tbody tr:hover{
+  background-color: #f6f1f6;
+}
+
+table > thead > tr > th {
+  text-align: left;
+  padding: 0.5rem 0.5rem;
+  background-color: #19bd1e;
+  color: white;
+}
+
+table > thead > tr > th.center {
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid #efefef;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table > thead > tr > td.center {
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid #efefef;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th.actions, td.actions{
+  width: 1%;
+  white-space: nowrap; /*impede que o botão quebre a linha*/
+  text-align: center;
+  min-height: 100vh;
+
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  width: 70%;
+  max-width: 100%;
+  min-height: 30%;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
