@@ -49,4 +49,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function autor(){ //isso é para o relacionamento com a tabela Autor
+        $this->hasOne(Autor::class);
+    }
 }
