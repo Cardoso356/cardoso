@@ -22,7 +22,7 @@ class StoreAutorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome'=>'required|string|max:100', //max é tamanho máximo
+            'nome'=>'required|string|max:100',
             'cidade'=>'required|string|max:100',
             'endereco'=>'required|string|max:100',
             'bairro'=>'required|string|max:100',

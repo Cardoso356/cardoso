@@ -27,11 +27,11 @@ class Autor extends Model
     ];
 
     public function user(){ //relacionamento com a tabela User
-        $this->belongsTo(User::class); //relacionamento 1 para 1
+        $this->belongsTo(User::class); //relacionamento 1 para 1, o autor pertence a um usuário
     }
 
     public function livros(){
-        $this->hasMany(EditoraLivroAutor::class);
+        $this->hasMany(EditoraLivroAutor::class); //um autor pode ter vários livros -> aqui é de um relacionamento n para n
     }
 
 }

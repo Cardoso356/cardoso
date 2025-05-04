@@ -50,7 +50,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function autor(){ //isso é para o relacionamento com a tabela Autor
+    public function autor(){ //Relacionamento com a tabela Autor, um usuário está associado a um autor (relacionamento um para um)
         $this->hasOne(Autor::class);
     }
 }
