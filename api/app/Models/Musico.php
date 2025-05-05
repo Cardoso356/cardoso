@@ -50,5 +50,13 @@ class Musico extends Model
             //'senha' => 'hashed',
         ];
     }
+
+    public function instrumentos(){
+        $this->hasMany(MusicoInstrumento::class); //para a relação de n para n com a tabela instrumentos
+    }
+
+    public function albums(){
+        $this->hasMany(MusicoAlbum::class); //para a relação de n para n com a tabela albums
+    }
  
  }

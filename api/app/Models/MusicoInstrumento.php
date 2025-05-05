@@ -46,4 +46,13 @@ class MusicoInstrumento extends Model
             //'senha' => 'hashed',
         ];
     }
+
+    public function musicos(){
+        $this->belongTo(Musico::class);
+    }
+
+    public function instrumentos(){
+        $this->belongsTo(Instrumento::class);
+    }
+
 }

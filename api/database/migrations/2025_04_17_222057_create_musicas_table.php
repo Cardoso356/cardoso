@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('nomeMusica');
             $table->string('genero');
             $table->string('gravadora');
-            $table->string('albumId');  //tem que relacionar ainda
+
+            $table->foreignId('albumId')
+                  ->constrained('albums')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

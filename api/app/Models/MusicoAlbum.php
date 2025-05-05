@@ -46,4 +46,13 @@ class MusicoAlbum extends Model
             //'senha' => 'hashed',
         ];
     }
+
+    public function musicos(){
+        $this->belongsTo(Musico::class);
+    }
+
+    public function albums(){
+        $this->belongsTo(Album::class);
+    }
+
 }

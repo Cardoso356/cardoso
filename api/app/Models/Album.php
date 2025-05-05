@@ -47,4 +47,12 @@ class Album extends Model
             //'senha' => 'hashed',
         ];
     }
+
+    public function musicos(){
+        $this->hasMany(MusicoAlbum::class);
+    }
+
+    public function musicas(){
+        $this->hasMany(Musica::class);
+    }
 }

@@ -48,4 +48,8 @@ class Musica extends Model
             //'senha' => 'hashed',
         ];
     }
+
+    public function albums(){
+        $this->belongsTo(Album::class); //uma música pertence a um album
+    }
 }

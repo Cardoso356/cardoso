@@ -13,8 +13,15 @@ return new class extends Migration
     {
         Schema::create('musico_instrumentos', function (Blueprint $table) {
             $table->id();
-            $table->string('musicoId'); //tem que relacionar ainda
-            $table->string('instrumentoId'); //tem que relacionar ainda
+
+            $table->foreignId('musicoId')
+                  ->constrained('musicos')
+                  ->onDelete('cascade');
+
+            $table->foreignId('instrumentoId')
+                  ->constrained('instrumentos')
+                  ->onDelete('cascade');
+                  
             $table->timestamps();
         });
     }

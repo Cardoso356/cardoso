@@ -48,4 +48,9 @@ class Instrumento extends Model
             //'senha' => 'hashed',
         ];
     }
+
+    public function musicos(){
+        $this->hasMany(MusicoInstrumento::class);
+    }
+
 }
