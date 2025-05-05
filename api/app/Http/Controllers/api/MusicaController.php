@@ -55,7 +55,7 @@ class MusicaController extends Controller
             'nomeMusica'=>'required|string|max:255', //max é tamanho máximo
             'genero'=>'required|string|max:255',
             'gravadora'=>'required|string|max:255',
-            //'albumId'=>'required|string|max:255',
+            'albumId'=>'required|string|max:255',
         ]);
 
         if($validator->fails()){
@@ -115,7 +115,7 @@ class MusicaController extends Controller
             'nomeMusica'=>'required|string|max:255', //max é tamanho máximo
             'genero'=>'required|string|max:255',
             'gravadora'=>'required|string|max:255',
-            //'albumId'=>'required|string|max:255',
+            'albumId'=>'required|string|max:255',
         ]);
 
         if($validator->fails()){
@@ -162,7 +162,7 @@ class MusicaController extends Controller
         if(!$data){
             return response()->json([
                 'message'=>'Música localizada com sucesso',
-                'data'=>$data,
+                'data'=>$id,
                 'status'=>404,
             ],404);
     

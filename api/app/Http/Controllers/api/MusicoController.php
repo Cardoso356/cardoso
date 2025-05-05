@@ -172,7 +172,7 @@ class MusicoController extends Controller
         if(!$data){
             return response()->json([
                 'message'=>'Músico localizado com sucesso',
-                'data'=>$data,
+                'data'=>$id,
                 'status'=>404,
             ],404);
     

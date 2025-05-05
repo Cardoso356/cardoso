@@ -158,7 +158,7 @@ class AlbumController extends Controller
         if(!$data){
             return response()->json([
                 'message'=>'ÁLbum localizado com sucesso',
-                'data'=>$data,
+                'data'=>$id,
                 'status'=>404,
             ],404);
     

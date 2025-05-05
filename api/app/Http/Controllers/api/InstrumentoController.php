@@ -162,7 +162,7 @@ class InstrumentoController extends Controller
         if(!$data){
             return response()->json([
                 'message'=>'Instrumento localizado com sucesso',
-                'data'=>$data,
+                'data'=>$id,
                 'status'=>404,
             ],404);
     

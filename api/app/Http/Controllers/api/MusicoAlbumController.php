@@ -56,8 +56,8 @@ class MusicoAlbumController extends Controller
     public function store(Request $request){ //salvar um registro, para criar uma variável sempre tem de ter o $ na frente dela
         
         $validator = Validator::make($request->all(),[
-            //'musicoId'=>'required|string|max:255',
-            //'albumId'=>'required|string|max:255',
+            'musicoId'=>'required|string|max:255',
+            'albumId'=>'required|string|max:255',
         ]);
 
         if($validator->fails()){
