@@ -12,6 +12,16 @@ import Login from '../views/login/Login'
 import Signup from '../views/login/Signup'
 import UpdatePassword from '../views/login/UpdatePassword'
 import ForgotPassword from '../views/login/ForgotPassword'
+import MusicoFormList from '../views/musico/MusicoFormList'
+import MusicoFormShow from '../views/musico/MusicoFormShow'
+import MusicoFormUpdate from '../views/musico/MusicoFormUpdate'
+import MusicoFormStore from '../views/musico/MusicoFormStore'
+import MusicoFormDestroy from '../views/musico/MusicoFormDestroy'
+import InstrumentoFormList from '../views/instrumento/InstrumentoFormList'
+import InstrumentoFormShow from '../views/instrumento/InstrumentoFormShow'
+import InstrumentoFormUpdate from '../views/instrumento/InstrumentoFormUpdate'
+import InstrumentoFormStore from '../views/instrumento/InstrumentoFormStore'
+import InstrumentoFormDestroy from '../views/instrumento/InstrumentoFormDestroy'
 
 const Rotas = () => {
   return (
@@ -30,6 +40,22 @@ const Rotas = () => {
           <Route path='/user/show/:id' element={<UserFormShow />} />
           <Route path='/user/destroy/:id' element={<UserFormDestroy />} />
         </Route>
+
+
+
+
+        <Route path='musico/index' element={<MusicoFormList />} />
+        <Route path='musico/show/:id' element={<MusicoFormShow />} />
+        <Route path='musico/update/:id' element={<MusicoFormUpdate />} />
+        <Route path='musico/store' element={<MusicoFormStore />} />
+        <Route path='musico/destroy/:id' element={<MusicoFormDestroy />} />
+
+        <Route path='instrumento/index' element={<InstrumentoFormList />} />
+        <Route path='instrumento/show/:id' element={<InstrumentoFormShow />} />
+        <Route path='instrumento/update/:id' element={<InstrumentoFormUpdate />} />
+        <Route path='instrumento/store' element={<InstrumentoFormStore />} />
+        <Route path='instrumento/destroy/:id' element={<InstrumentoFormDestroy />} />
+
 
         <Route path="*" element={<NotFound/>}/>
 
