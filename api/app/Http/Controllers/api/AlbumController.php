@@ -134,7 +134,7 @@ class AlbumController extends Controller
             ], 404);
         }
 
-        $data->nomeAlbum = $request->nomeAlbum ?? $data->nomeAlbum;
+        $data->tituloAlbum = $request->tituloAlbum ?? $data->tituloAlbum;
         $data->formato = $request->formato ?? $data->formato;
         $data->dataAlbum = $request->dataAlbum ?? $data->dataAlbum;
 
