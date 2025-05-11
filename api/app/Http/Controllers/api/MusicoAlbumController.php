@@ -24,7 +24,8 @@ class MusicoAlbumController extends Controller
         $search = $request->get('search','');
 
 
-        $query = MusicoAlbum::select('id','musicoId','albumId')
+        //$query = MusicoAlbum::select('id','musicoId','albumId')
+        $query = MusicoAlbum::with('musico:id,nomeMusico', 'album:id,tituloAlbum')
                 ->whereNull('deleted_at')
                 ->orderBy($props, $dir);
 
@@ -88,7 +89,8 @@ class MusicoAlbumController extends Controller
         
         try{ //o try catch é um tratamento de exceções (erros)
 
-            $data = MusicoAlbum::findOrFail($id);
+            //$data = MusicoAlbum::findOrFail($id);
+            $data = MusicoAlbum::with('musico:id,nomeMusico', 'album:id,tituloAlbum')->findOrFail($id);
 
             if(!$data){
                 throw new HttpResponseException(

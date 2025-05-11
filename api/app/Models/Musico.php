@@ -56,7 +56,7 @@ class Musico extends Model
     }
 
     public function albums(){
-        return $this->hasMany(MusicoAlbum::class); //para a relação de n para n com a tabela albums
+        return $this->hasMany(MusicoAlbum::class, 'musicoId'); //para a relação de n para n com a tabela albums
     }
  
  }

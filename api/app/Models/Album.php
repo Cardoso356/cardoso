@@ -49,10 +49,10 @@ class Album extends Model
     }
 
     public function musicos(){
-        $this->hasMany(MusicoAlbum::class);
+        return $this->hasMany(MusicoAlbum::class, 'albumId');
     }
 
     public function musicas(){
-        $this->hasMany(Musica::class);
+        return $this->hasMany(Musica::class, 'albumId');
     }
 }

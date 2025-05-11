@@ -47,12 +47,12 @@ class MusicoAlbum extends Model
         ];
     }
 
-    public function musicos(){
-        $this->belongsTo(Musico::class);
+    public function musico(){ //deixei no singular
+        return $this->belongsTo(Musico::class, 'musicoId');
     }
 
-    public function albums(){
-        $this->belongsTo(Album::class);
+    public function album(){ //deixei no singular
+        return $this->belongsTo(Album::class, 'albumId');
     }
 
 }

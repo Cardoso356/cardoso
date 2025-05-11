@@ -37,6 +37,11 @@ import MusicoInstrumentoFormShow from '../views/MusicoInstrumento/MusicoInstrume
 import MusicoInstrumentoFormStore from '../views/MusicoInstrumento/MusicoInstrumentoFormStore'
 import MusicoInstrumentoFormUpdate from '../views/MusicoInstrumento/MusicoInstrumentoFormUpdate'
 import MusicoInstrumentoFormDestroy from '../views/MusicoInstrumento/MusicoInstrumentoFormDestroy'
+import MusicoAlbumFormList from '../views/MusicoAlbum/MusicoAlbumFormList'
+import MusicoAlbumFormShow from '../views/MusicoAlbum/MusicoAlbumFormShow'
+import MusicoAlbumFormStore from '../views/MusicoAlbum/MusicoAlbumFormStore'
+import MusicoAlbumFormUpdate from '../views/MusicoAlbum/MusicoAlbumFormUpdate'
+import MusicoAlbumFormDestroy from '../views/MusicoAlbum/MusicoAlbumFormDestroy'
 
 const Rotas = () => {
   return (
@@ -88,6 +93,13 @@ const Rotas = () => {
         <Route path='musicoinstrumento/update/:id' element={<MusicoInstrumentoFormUpdate />} />
         <Route path='musicoinstrumento/store' element={<MusicoInstrumentoFormStore />} />
         <Route path='musicoinstrumento/destroy/:id' element={<MusicoInstrumentoFormDestroy />} />
+
+        <Route path='musicoalbum/index' element={<MusicoAlbumFormList />} />
+        <Route path='musicoalbum/show/:id' element={<MusicoAlbumFormShow />} />
+        <Route path='musicoalbum/store' element={<MusicoAlbumFormStore />} />
+        <Route path='musicoalbum/update/:id' element={<MusicoAlbumFormUpdate />} />
+        <Route path='musicoalbum/destroy/:id' element={<MusicoAlbumFormDestroy />} />
+
 
         <Route path="*" element={<NotFound/>}/>
 
