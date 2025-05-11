@@ -27,6 +27,11 @@ import AlbumFormShow from '../views/album/AlbumFormShow'
 import AlbumFormUpdate from '../views/album/AlbumFormUpdate'
 import AlbumFormStore from '../views/album/AlbumFormStore'
 import AlbumFormDestroy from '../views/album/AlbumFormDestroy'
+import MusicaFormList from '../views/musica/MusicaFormList'
+import MusicaFormShow from '../views/musica/MusicaFormShow'
+import MusicaFormUpdate from '../views/musica/MusicaFormUpdate'
+import MusicaFormStore from '../views/musica/MusicaFormStore'
+import MusicaFormDestroy from '../views/musica/MusicaFormDestroy'
 
 const Rotas = () => {
   return (
@@ -66,6 +71,12 @@ const Rotas = () => {
         <Route path='album/update/:id' element={<AlbumFormUpdate />} />
         <Route path='album/store' element={<AlbumFormStore />} />
         <Route path='album/destroy/:id' element={<AlbumFormDestroy />} />
+
+        <Route path='musica/index' element={<MusicaFormList />} />
+        <Route path='musica/show/:id' element={<MusicaFormShow />} />
+        <Route path='musica/update/:id' element={<MusicaFormUpdate />} />
+        <Route path='musica/store' element={<MusicaFormStore />} />
+        <Route path='musica/destroy/:id' element={<MusicaFormDestroy />} />
 
 
         <Route path="*" element={<NotFound/>}/>

@@ -49,7 +49,7 @@ class Musica extends Model
         ];
     }
 
-    public function albums(){
-        $this->belongsTo(Album::class); //uma música pertence a um album
+    public function album(){ //album no singular pois, musica esta relacionado a um único album apenas e não vários albums
+        return $this->belongsTo(Album::class, 'albumId'); //uma música pertence a um album
     }
 }

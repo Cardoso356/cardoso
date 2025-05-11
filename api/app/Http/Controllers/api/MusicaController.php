@@ -20,7 +20,8 @@ class MusicaController extends Controller
         $search = $request->get('search','');
 
 
-        $query = Musica::select('id','nomeMusica','genero','gravadora','albumId')
+       // $query = Musica::select('id','nomeMusica','genero','gravadora','albumId')
+        $query = Musica::with('album:id,tituloAlbum') //para poder trazer o titulo do album associado apenas que é o que queremos
                 ->whereNull('deleted_at')
                 ->orderBy($props, $dir);
 
@@ -88,7 +89,8 @@ class MusicaController extends Controller
         
         try{ //o try catch é um tratamento de exceções (erros)
 
-            $data = Musica::findOrFail($id);
+            //$data = Musica::findOrFail($id);
+            $data = Musica::with('album:id,tituloAlbum')->findOrFail($id); //é o relacionamento com album para mostrar o título do album
 
             if(!$data){
                 throw new HttpResponseException(
