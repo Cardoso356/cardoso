@@ -24,7 +24,8 @@ class MusicoInstrumentoController extends Controller
         $search = $request->get('search','');
 
 
-        $query = MusicoInstrumento::select('id','musicoId','instrumentoId')
+        //$query = MusicoInstrumento::select('id','musicoId','instrumentoId')
+        $query = MusicoInstrumento::with('musico:id,nomeMusico','instrumento:id,nomeInstrumento') //traz as informações das tabelas musico e instrumento, só os nomes e os ids deles
                 ->whereNull('deleted_at')
                 ->orderBy($props, $dir);
 
@@ -88,7 +89,8 @@ class MusicoInstrumentoController extends Controller
         
         try{ //o try catch é um tratamento de exceções (erros)
 
-            $data = MusicoInstrumento::findOrFail($id);
+            //$data = MusicoInstrumento::findOrFail($id);
+            $data = MusicoInstrumento::with('musico:id,nomeMusico','instrumento:id,nomeInstrumento')->findOrFail($id);
 
             if(!$data){
                 throw new HttpResponseException(

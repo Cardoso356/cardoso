@@ -47,12 +47,12 @@ class MusicoInstrumento extends Model
         ];
     }
 
-    public function musicos(){
-        $this->belongTo(Musico::class);
+    public function musico(){ //coloquei no singular porque nessa tabela teremos o relacionamento de um músico com um instrumento em cada linha
+        return $this->belongsTo(Musico::class, 'musicoId');
     }
 
-    public function instrumentos(){
-        $this->belongsTo(Instrumento::class);
+    public function instrumento(){ //coloquei no singular
+        return $this->belongsTo(Instrumento::class, 'instrumentoId');
     }
 
 }

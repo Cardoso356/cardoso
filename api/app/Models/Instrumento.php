@@ -50,7 +50,7 @@ class Instrumento extends Model
     }
 
     public function musicos(){
-        $this->hasMany(MusicoInstrumento::class);
+        return $this->hasMany(MusicoInstrumento::class, 'instrumentoId');
     }
 
 }
