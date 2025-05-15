@@ -4,6 +4,7 @@ import { useState } from 'react'
 import './App.css'
 //import { Routes } from 'react-router-dom'
 import Rotas from './routes/Routes'
+import ContextProvider, { LoginContexto } from './context/ContextProvider'
 //import DefaultLayout from './Componentes/DefaultLayout'
 
 function App() {
@@ -11,7 +12,10 @@ function App() {
   return (
     
     <>
-        <Rotas/>
+       { /*<ContextProvider> <Rotas/> </ContextProvider>  na aula do dia 12/05 deixamos assim*/}
+          <Rotas/>
+    
+        
     </>
     
     

@@ -9,6 +9,8 @@ use App\Http\Controllers\api\InstrumentoController;
 use App\Http\Controllers\api\MusicaController;
 use App\Http\Controllers\api\MusicoInstrumentoController;
 use App\Http\Controllers\api\MusicoAlbumController;
+use App\Http\Controllers\api\LoginController;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -27,6 +29,8 @@ Route::prefix('user')->group(function (){
     Route::delete('/destroy/{id}',[UsuarioController::class,'destroy']); //para pegar
 });
 
+
+Route::post('/login',[LoginController::class,'login']);
 
 
 
