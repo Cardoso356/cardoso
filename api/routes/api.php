@@ -31,7 +31,7 @@ Route::prefix('user')->group(function (){
 
 
 Route::post('/login',[LoginController::class,'login']);
-
+Route::post('/logout',[LoginController::class,'logout']);
 
 
 

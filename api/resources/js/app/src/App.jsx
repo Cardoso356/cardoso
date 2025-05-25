@@ -12,10 +12,9 @@ function App() {
   return (
     
     <>
-       { /*<ContextProvider> <Rotas/> </ContextProvider>  na aula do dia 12/05 deixamos assim*/}
-          <Rotas/>
-    
-        
+       <ContextProvider>
+         <Rotas/> 
+       </ContextProvider>   
     </>
     
     

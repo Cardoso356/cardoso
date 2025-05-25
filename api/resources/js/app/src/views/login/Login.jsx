@@ -1,16 +1,22 @@
 import { createRef, useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosClient from "../../axiosClientjs";
+import { useLogin } from "../../context/ContextProvider";
 
 export default function Login(){
 
     const emailRef = createRef();
     const passwordRef = createRef();
+    const navigate = useNavigate();
+
+    const { _setToken, _setUser } = useLogin();
 
     const [message, setMessage] = useState(null);
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        
 
         const login = {
             email: emailRef.current.value,
@@ -20,7 +26,9 @@ export default function Login(){
         axiosClient.post('/login', login)
                     .then(({data})=>{
                         console.log(data);
-                        localStorage.setItem('TOKEN',data.token);
+                        _setToken(data.token);
+                        _setUser(data.user);
+                        navigate('/dashboard'); //ao fazer o login, se der certo ele abre a página principal do sistema
                     })
                     .catch((erro)=>{
                         console.log(erro);
