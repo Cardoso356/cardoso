@@ -5,9 +5,9 @@ export const LOGIN = {
 }
 
 export const ERRO_LOGIN = {
-    emailMensagem: [], //array vazio
+    emailMensagem:[], //array vazio
     email:false,
-    passwordMensagem: [],
+    passwordMensagem:[],
     password:false,
 }
 
