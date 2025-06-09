@@ -10,7 +10,7 @@ use App\Http\Controllers\api\MusicaController;
 use App\Http\Controllers\api\MusicoInstrumentoController;
 use App\Http\Controllers\api\MusicoAlbumController;
 use App\Http\Controllers\api\LoginController;
-
+use App\Http\Controllers\api\SignupController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -33,6 +33,7 @@ Route::prefix('user')->group(function (){
 Route::post('/login',[LoginController::class,'login']);
 Route::post('/logout',[LoginController::class,'logout']);
 
+Route::post('/register',[SignupController::class,'register']); //feito por mim
 
 
 

@@ -44,13 +44,14 @@ export default function Login(){
                         console.log(data);
                         _setToken(data.token);
                         _setUser(data.user);
+                        setMessage('Login realizado com sucesso'+login);
                         navigate('/dashboard'); //ao fazer o login, se der certo ele abre a página principal do sistema
                     })
                     .catch((erro)=>{
                         console.log(erro);
                     })
 
-       */ //setMessage('Login realizado com sucesso');
+       */
     }
 
     return(
@@ -91,6 +92,7 @@ export default function Login(){
                             ) : null*/
                         }
                     </div>
+
                     <div className="p-20">
                     <input type="password" 
                         placeholder="Senha" 
@@ -117,9 +119,11 @@ export default function Login(){
                             ) : null*/
                          }
                     </div>
+                    
                     <button type="Submit"
                         className='btn btn-block p-20'>Login</button>
-                    <p className='message'>Não está Registrado ? <Link to='/register'>Criar nova conta</Link> </p>
+                    <p className='message'>Não está registrado ? <Link to='/register'>Criar nova conta</Link> </p>
+                    <p className='message'>Deseja alterar a senha ? <Link to='/updatepassword'>Alterar senha</Link> </p>
                 </form>
             </div>
         </div>
