@@ -4,7 +4,7 @@ const MensagemErro = ({
     error,
     mensagem
 }) => {
-    const unique = [...new Set(mensagem)];
+    const unique = [...new Set(mensagem)]; //isso pega a mensagem que chega e aplica um Set nele, com esse unique ele não permite mensagens repetidas
 
   return (
     <Fragment>

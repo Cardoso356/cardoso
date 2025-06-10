@@ -8,11 +8,11 @@ export const SIGNUP = {
 
 export const ERRO_SIGNUP = {
     nameMensagem:[], //array vazio
-    name:false,
+    name:'',
     emailMensagem:[],
-    email:false,
+    email:'',
     passwordMensagem:[],
-    password:false,
+    password:'',
     confirmPasswordMensagem:[],
-    confirmPassword:false,
+    confirmPassword:'',
 }

@@ -17,6 +17,15 @@ const useValidator = (initialModel, errorModel, validationRules) => {
     }
     /*esse prev pega o valor atual que o campo dentro de [] possui, e passa o value que será o novo valor que ele vai receber */
 
+    const handleBlurField = (e) => {
+
+        const { name } = e.target;
+        let erros = validBlurInput(name);
+        setError(erros);
+
+    }
+
+
     const hasErrors = (erros) => {
         return Object.values(erros).some(value => value === true);
     }
@@ -28,25 +37,38 @@ const useValidator = (initialModel, errorModel, validationRules) => {
         Object.keys(validationRules).forEach((field) => {
             const validationFunction = validationRules[field];
             const value = model[field]; //com o field nós pegamos o valor
-            const mensagens = validationFunction(value,model);
+            const mensagens = validationFunction(value,model); //esse model é o Login.js
             erros[`${field}Mensagem`] = mensagens;
             const hasErros = Array.isArray(mensagens) &&
-                             mensagens.some(msg => typeof msg === 'string' && msg.trim().length > 0);
+                             mensagens.some(msg => typeof msg === 'string' && msg.trim().length > 0); //aqui, ter pelo menos uma string indica que tem erro -> retorna true. Não tem erro, retorna false
 
             erros[field] = hasErros;
-            console.log(erros);
-            //erros[`${field}Mensagem`] = validationFunction(value, model);
-            //erros[field] = !!(erros[`${field}Mensagem`] && erros[`${field}Mensagem`].length > 0);            
+
         })
         
         return erros;
 
     }
 
+    const validBlurInput = (field) => {
+
+        let erros = {...error};
+        const validationFunction = validationRules[field];
+
+        if (validationFunction){
+            const value = model[field];
+            erros[`${field}Mensagem`] = validationFunction(value, model);
+            erros[field] = !!(erros[`${field}Mensagem`] && erros[`${field}Mensagem`].length > 0); //pra retornar true ou false
+        }
+
+        return erros;
+    }
+    
+
     const formValid = () => {
         const erros = validateAll();
         setError(erros);
-        return !hasErrors(erros);
+        return !hasErrors(erros); //essa função faz a validação, erros-> retorna true. Sem erros-> retorna false
     }
 
     return {
@@ -55,8 +77,9 @@ const useValidator = (initialModel, errorModel, validationRules) => {
         error,
         setError,
         handleChangeField,
-        //validateAll,
+        handleBlurField,
         formValid,
+        
     }
 
 }

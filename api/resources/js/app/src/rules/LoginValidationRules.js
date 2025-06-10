@@ -6,7 +6,7 @@ const NUMBER = '0123456789';
 const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
 const SPECIALCHARACTER = "!'^%&#()=?@";
-const PASSWORD_LENGTH = 8;
+const PASSWORD_LENGTH = 6;
 
 const loginValidationRules = { //regras de negócio para as validações
 
@@ -27,7 +27,7 @@ const loginValidationRules = { //regras de negócio para as validações
         }
 
         if( password.length < PASSWORD_LENGTH){
-            mensagens.push('A senha deve conter no mínimo 8 caracteres');
+            mensagens.push('A senha deve conter no mínimo 6 caracteres');
         }
 
        // const hasNumber = [...password].some((char)=>{

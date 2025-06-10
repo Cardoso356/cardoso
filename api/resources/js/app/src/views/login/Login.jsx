@@ -7,7 +7,14 @@ import MensagemErro from '../../Componentes/Mensagens/MensagemErro';
 
 export default function Login(){
 
-    const {model, error, formValid, handleChangeField, validateAll} = useValidarDadosLogin();
+    const {
+           model, 
+           error, 
+           formValid, 
+           handleChangeField, 
+           handleBlurField
+
+    } = useValidarDadosLogin();
 
     const navigate = useNavigate();
 
@@ -30,13 +37,12 @@ export default function Login(){
     const onSubmit = (e) => {
         e.preventDefault();
         formValid();
-        console.log(error);
-        //validateAll();
+        console.log(model);
 
 
-       /* const login = {
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
+        const login = {
+            email: model.email,
+            password: model.password,
         }
 
         axiosClient.post('/login', login)
@@ -51,7 +57,7 @@ export default function Login(){
                         console.log(erro);
                     })
 
-       */
+       
     }
 
     return(
@@ -72,24 +78,13 @@ export default function Login(){
                         name="email"
                         value={model.email}
                         onChange={handleChangeField}
+                        onBlur={handleBlurField} //o onBlur é o responsável por:ao clicar no tab, ele pula para o outro campo
                         />
                         {
                             <MensagemErro
                                 error = {error.email}
                                 mensagem = {error.emailMensagem}
                             />
-                            /*error.email ? (
-                                 <div className="invalid-feedback" > {
-                                    error.emailMensagem.map((mens, index) => {
-                                        return (
-                                            <p key={index}>
-                                                <span style={{margin: "0", color: "red"}}>{mens}</span>
-                                            </p>
-                                        );
-                                    })
-                                }
-                                </div>
-                            ) : null*/
                         }
                     </div>
 
@@ -99,24 +94,14 @@ export default function Login(){
                         className={getInputClass(error.password)}
                         name = "password"
                         value = {model.password}
-                        onChange={handleChangeField}/>
+                        onChange={handleChangeField}
+                        onBlur={handleBlurField}
+                        />
                         {
                             <MensagemErro
                                 error = {error.password}
                                 mensagem = {error.passwordMensagem}
                             />
-                            /*error.password ? (
-                                <div className="invalid-feedback" > {
-                                    error.passwordMensagem.map((mens, index) => {
-                                        return (
-                                            <p key={index}>
-                                                <span style={{margin: "0", color: "red"}}>{mens}</span>
-                                            </p>
-                                        );
-                                    })
-                                }
-                                </div>
-                            ) : null*/
                          }
                     </div>
                     

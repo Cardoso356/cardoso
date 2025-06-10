@@ -5,8 +5,17 @@ import { useValidarDadosSignup } from '../../rules/SignupValidationRules';
 import MensagemErro from '../../Componentes/Mensagens/MensagemErro';
 
 export default function Signup(){
+
+    const {
+        model, 
+        error, 
+        formValid, 
+        handleChangeField, 
+        handleBlurField,
     
-    const {model, error, formValid, handleChangeField, validateAll} = useValidarDadosSignup();
+        } = useValidarDadosSignup();
+    
+    //const {model, error, formValid, handleChangeField, validateAll} = useValidarDadosSignup();
     
     const navigate = useNavigate();
 
@@ -30,23 +39,25 @@ export default function Signup(){
         //validateAll();
 
 
-       /* const login = {
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
+        const register = {
+            name: model.name,
+            email: model.email,
+            password: model.password,
+            confirmPassword: model.confirmPassword,
         }
 
-        axiosClient.post('/login', login)
+        axiosClient.post('/register', register)
                     .then(({data})=>{
                         console.log(data);
-                        _setToken(data.token);
-                        _setUser(data.user);
-                        navigate('/dashboard'); //ao fazer o login, se der certo ele abre a página principal do sistema
+                       // _setToken(data.token);
+                       // _setUser(data.user);
+                        setMessage('Usuário registrado com sucesso');
+                        navigate('/login'); //ao fazer o registro, se der certo ele abre a tela de login
                     })
                     .catch((erro)=>{
                         console.log(erro);
                     })
 
-       */ //setMessage('Login realizado com sucesso');
     }
 
     return(
@@ -67,6 +78,7 @@ export default function Signup(){
                         name="name"
                         value={model.name}
                         onChange={handleChangeField}
+                        onBlur={handleBlurField}
                         />
                         {
                             <MensagemErro
@@ -83,6 +95,7 @@ export default function Signup(){
                         name="email"
                         value={model.email}
                         onChange={handleChangeField}
+                        onBlur={handleBlurField}
                         />
                         {
                             <MensagemErro
@@ -99,6 +112,7 @@ export default function Signup(){
                         name="password"
                         value={model.password}
                         onChange={handleChangeField}
+                        onBlur={handleBlurField}
                         />
                         {
                             <MensagemErro
@@ -115,6 +129,7 @@ export default function Signup(){
                         name="confirmPassword"
                         value={model.confirmPassword}
                         onChange={handleChangeField}
+                        onBlur={handleBlurField}
                         />
                         {
                             <MensagemErro
