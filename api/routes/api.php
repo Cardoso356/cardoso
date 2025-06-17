@@ -11,6 +11,8 @@ use App\Http\Controllers\api\MusicoInstrumentoController;
 use App\Http\Controllers\api\MusicoAlbumController;
 use App\Http\Controllers\api\LoginController;
 use App\Http\Controllers\api\SignupController;
+use App\Http\Controllers\api\RegisterUserController;
+use App\Http\Controllers\api\VerifyUserAccount;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -33,10 +35,10 @@ Route::prefix('user')->group(function (){
 Route::post('/login',[LoginController::class,'login']);
 Route::post('/logout',[LoginController::class,'logout']);
 
-Route::post('/register',[SignupController::class,'register']); //feito por mim
+Route::post('/register',[SignupController::class,'register']); //feito por mim para a tela de Registro ao lado do login
 
-
-
+Route::post('/signup',[RegisterUserController::class,'signup']); //feito na aula dia 16/06
+Route::get('/verify_account',[VerifyUserAccount::class,'verifyUserAccount']); //feito na aula dia 16/06
 
 
 

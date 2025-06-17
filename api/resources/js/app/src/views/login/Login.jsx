@@ -36,7 +36,7 @@ export default function Login(){
 
     const onSubmit = (e) => {
         e.preventDefault();
-        formValid();
+        if(formValid()){
         console.log(model);
 
 
@@ -56,7 +56,7 @@ export default function Login(){
                     .catch((erro)=>{
                         console.log(erro);
                     })
-
+        }
        
     }
 

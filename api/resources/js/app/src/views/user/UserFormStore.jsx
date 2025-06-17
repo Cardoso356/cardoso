@@ -17,7 +17,7 @@ export default function UserFormStore(){
         handleBlurField
     
     } = useValidarDadosUsuario("create");
-    console.log(model);
+    //console.log(model); //isso é só pra ver se está aparecendo os dados do teclado nos campos do usuário
 
     const onSubmit = (e) => {
         e.preventDefault(); //impede que o navegador recarregue a página
