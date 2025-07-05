@@ -11,10 +11,15 @@ class RegisterUserController extends Controller
 {
     public function signup (Request $request){
 
+        // Mapeia o campo do frontend para o nome esperado pela validação
+        $request->merge([
+            'password_confirmation' => $request->confirmPassword
+        ]);
+
         $validator = Validator::make($request->all(),[
             'name'=>'required|string',
             'email'=>'required|email|unique:users,email',
-            'password'=>'required|string|min:6', //o confirmed é para confirmar a senha
+            'password'=>'required|string|min:6|confirmed', //o confirmed é para confirmar a senha
         ]);
 
 
@@ -31,6 +36,10 @@ class RegisterUserController extends Controller
             'email'=>$request->email,
             'password'=>bcrypt($request->password), //criptografa a senha esse bcrypt
         ]);
+
+        /*if ($user) {
+            User::sendEmailUserActivated($user);  // aqui o $user é o que foi criado, com email correto
+        }*/
 
 
         //validação do usuário

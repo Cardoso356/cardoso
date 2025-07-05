@@ -13,7 +13,7 @@ export default function Signup(){
         handleChangeField, 
         handleBlurField,
     
-        } = useValidarDadosSignup();
+    } = useValidarDadosSignup();
     
     //const {model, error, formValid, handleChangeField, validateAll} = useValidarDadosSignup();
     
@@ -39,14 +39,14 @@ export default function Signup(){
         //validateAll();
 
 
-        const register = {
+        const signup = {
             name: model.name,
             email: model.email,
             password: model.password,
             confirmPassword: model.confirmPassword,
         }
 
-        axiosClient.post('/register', register)
+        axiosClient.post('/signup', signup)
                     .then(({data})=>{
                         console.log(data);
                        // _setToken(data.token);
