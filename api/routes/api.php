@@ -153,3 +153,8 @@ Route::prefix('musicoalbum')->group(function (){
 
     Route::delete('/destroy/{id}',[MusicoAlbumController::class,'destroy']); //para pegar
 });
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/changePassword', [ResetPasswordController::class, 'changePassword']);
+});

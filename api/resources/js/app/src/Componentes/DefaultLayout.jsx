@@ -42,7 +42,9 @@ console.log(token);
               Sistema de Controle de Livros
             </div>
             <div>
-              {user.name} &nbsp; &nbsp;
+              {user.name} &nbsp; |  &nbsp;
+              <Link to="/changePassword" className="btn-link" href='#'>Alterar Senha</Link>
+              &nbsp;  |&nbsp;
               <a onClick={onLogout} className='btn-logout' href='#'>Logout</a>
             </div>
           </header>

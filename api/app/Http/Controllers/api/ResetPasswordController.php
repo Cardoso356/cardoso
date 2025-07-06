@@ -12,7 +12,7 @@ use App\Models\User;
 
 class ResetPasswordController extends Controller
 {
-    public function updatePassword(Request $request)
+    public function updatePassword(Request $request) //para atualizar a senha do usuário caso ele tenha esquecido para fazer o login
     {
         $validator = Validator::make($request->all(), [
             'token' => 'required',
@@ -44,6 +44,37 @@ class ResetPasswordController extends Controller
         return response()->json([
             'message' => 'Erro ao redefinir a senha. Verifique o link ou tente novamente.',
         ], 500);
+    }
+
+
+    public function changePassword(Request $request) //para alterar a senha do usuário com ele já logado
+    {
+        $validator = Validator::make($request->all(), [
+            'passwordAtual' => 'required',
+            'novaPassword' => 'required|string|min:6|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Erro na validação dos dados',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->passwordAtual, $user->password)) {
+            return response()->json([
+                'message' => 'A senha atual está incorreta.',
+            ], 403);
+        }
+
+        $user->password = Hash::make($request->novaPassword);
+        $user->save();
+
+        return response()->json([
+            'message' => 'Senha alterada com sucesso.',
+        ]);
     }
     
     /*public function updatePassword(Request $request){
